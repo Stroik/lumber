@@ -1,0 +1,16 @@
+<ion-view view-title="Todos">
+      <ion-nav-buttons side="right">
+        <button class="button" ng-click="openModal()" >
+          <i class="icon ion-plus-circled"></i>
+        </button>
+      </ion-nav-buttons>
+  <ion-content>
+    <ion-list>
+      <ion-item class="item-remove-animate" ng-repeat="todo in $storage.todos" type="item-text-wrap" href="#/tab/todos/{{todo.id}}">
+        <h2>{{todo.name}}</h2>
+        <p>{{todo.comment}}</p>
+
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

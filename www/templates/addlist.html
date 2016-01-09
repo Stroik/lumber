@@ -1,0 +1,20 @@
+<ion-modal-view>
+	<ion-header-bar>
+	  <h1 class="title">Add new todo</h1>
+	  <div class="button button-clear" ng-click="closeModal()"><span class="icon ion-close"></span></div>
+	</ion-header-bar>
+	<ion-content>
+	  	<div class="list">
+		  <label class="item item-input">
+		  	<input type="hidden" ng-model="list.id" >
+		    <input type="text" placeholder="Name" ng-model="list.name">
+		  </label>
+		  <label class="item item-input">
+		    <textarea placeholder="Comments" ng-model="list.comment"></textarea>
+		  </label>
+		<button class="button button-block button-assertive" ng-click="add(list)">
+		  Add +
+		</button>
+		</div>
+	</ion-content>
+</ion-modal-view>
