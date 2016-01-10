@@ -1,1 +1,19 @@
-/* Empty. Add your own CSS if you like */
+ion-item.rosa a.item-content{background-color: #FFDFDF;}
+ion-item.azul a.item-content{background-color: #B8DEFC;}
+ion-item.verde a.item-content{background-color: #CBFFCD;}
+ion-item.naranja a.item-content{background-color: #FECE86;}
+ion-item.marron a.item-content{background-color: #BA9C91;}
+ion-item.violeta a.item-content{background-color: #DFD1F8;}
+.rosa{background-color: #FFDFDF;}
+.azul{background-color: #B8DEFC;}
+.verde{background-color: #CBFFCD;}
+.naranja{background-color: #FECE86;}
+.marron{background-color: #BA9C91;}
+.violeta{background-color: #DFD1F8;}
+ion-item.isDone h2{text-decoration: line-through;}
+.button.button-dark{align-items: center;justify-content: center;}
+.bar .title{color: #EF473A;}
+ion-item.item-remove-animate{border: transparent;}
+label.item.item-input.input-textarea textarea {background: transparent;line-height: 35px;}
+label.item.item-input.input-textarea {background: linear-gradient( to bottom, #FFF8BF 99%, #444 1% );background-size: 100% 35px;}
+ion-item.item-remove-animate.notes .item-content{background: rgba(158, 158, 158, 0.1);}

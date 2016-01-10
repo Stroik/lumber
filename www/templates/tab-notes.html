@@ -1,4 +1,4 @@
-<ion-view view-title="Lista de tareas">
+<ion-view view-title="Notas">
       <ion-nav-buttons side="right">
         <button class="button" ng-click="openModal()" >
           <i class="icon ion-android-add-circle"></i>
@@ -6,10 +6,10 @@
       </ion-nav-buttons>
   <ion-content>
     <ion-list>
-      <ion-item class="item-remove-animate" ng-repeat="todo in $storage.todos" ng-class="todo.color" type="item-text-wrap" href="#/tab/todos/{{todo.id}}">
-        <h2>{{todo.name}}</h2>
-        <p>{{todo.comment}}</p>
-        <ion-option-button class="button-dark" ng-click="del(todo)">
+      <ion-item class="item-remove-animate notes" ng-repeat="note in $storage.notes" ng-class="todo.color" type="item-text-wrap" href="#/tab/notes/{{note.id}}">
+        <h2>{{note.title}}</h2>
+        <p>{{note.content | limitTo: 30}}...</p>
+        <ion-option-button class="button-dark" ng-click="del(note)">
           <i class="icon ion-trash-b"></i>
         </ion-option-button>
       </ion-item>

@@ -1,0 +1,19 @@
+<ion-view view-title="{{note.title}}">
+      <ion-nav-buttons side="right">
+        <button class="button" ng-click="save(note)" >
+          Guardar
+        </button>
+      </ion-nav-buttons>
+  <ion-content>
+      <div class="list">
+      <label class="item item-input">
+        <input type="hidden" ng-model="note.id" >
+        <span class="input-label">Título</span>
+        <input type="text" ng-model="note.title" value="{{note.title}}">
+      </label>
+      <label class="item item-input input-textarea">
+        <textarea ng-model="note.content" rows="10" value="{{note.content}}"></textarea>
+      </label>
+    </div>
+  </ion-content>
+</ion-view>

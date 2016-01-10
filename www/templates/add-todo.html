@@ -1,0 +1,16 @@
+<ion-modal-view>
+	<ion-header-bar>
+	  <h1 class="title">Nueva tarea</h1>
+	  <div class="button button-clear" ng-click="closeModal()"><span class="icon ion-ios-close-empty"></span></div>
+	</ion-header-bar>
+	<ion-content>
+	  	<div class="list">
+		  <label class="item item-input">
+		    <input type="text" placeholder="Debo recordar..." ng-model="todo.name">
+		  </label>
+		<button class="button button-block button-assertive" ng-click="addTodo(listid, todo)">
+		  Añadir
+		</button>
+		</div>
+	</ion-content>
+</ion-modal-view>

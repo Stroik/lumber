@@ -1,6 +1,6 @@
 angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'ngStorage'])
 
-.run(function($ionicPlatform, $rootScope) {
+.run(function($ionicPlatform, $rootScope, $localStorage) {
   $ionicPlatform.ready(function() {
     if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
@@ -10,6 +10,26 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
       StatusBar.styleDefault();
     }
   });
+  if($localStorage.todos){
+    console.log('existe todo en localStorage');
+  }
+  else if(!$localStorage.todos){
+    console.log('no existe todo en localStorage lo crearemos');
+    $localStorage.todos = [];
+  }
+  else{
+    console.log('ninguna de las anteriores');
+  }
+  if($localStorage.notes){
+    console.log('existe notes en localStorage');
+  }
+  else if(!$localStorage.notes){
+    console.log('no existe notes en localStorage lo crearemos');
+    $localStorage.notes = [];
+  }
+  else{
+    console.log('ninguna de las anteriores');
+  }
   $rootScope.getDateTime = function() {
       var now     = new Date(); 
       var year    = now.getFullYear();
@@ -35,7 +55,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
         return text;
     }
 })
-
 .config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
   $ionicConfigProvider.tabs.position('bottom');
   $stateProvider
@@ -59,6 +78,33 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
         'tab-todos': {
           templateUrl: 'templates/todo-list.html',
           controller: 'TodoListCtrl'
+        }
+      }
+    })
+    .state('tab.notes', {
+      url: '/notes',
+      views: {
+        'tab-notes': {
+          templateUrl: 'templates/tab-notes.html',
+          controller: 'NotesCtrl'
+        }
+      }
+    })
+    .state('tab.notedetail', {
+      url: '/notes/:noteId',
+      views: {
+        'tab-notes': {
+          templateUrl: 'templates/note-detail.html',
+          controller: 'NoteDetailCtrl'
+        }
+      }
+    })
+    .state('tab.options', {
+      url: '/options',
+      views: {
+        'tab-options': {
+          templateUrl: 'templates/tab-options.html',
+          controller: 'OptionsCtrl'
         }
       }
     });

@@ -1,0 +1,30 @@
+<ion-modal-view>
+	<ion-header-bar>
+	  <h1 class="title">Nueva lista de tareas</h1>
+	  <div class="button button-clear" ng-click="closeModal()"><span class="icon ion-ios-close-empty"></span></div>
+	</ion-header-bar>
+	<ion-content>
+	  	<div class="list">
+		  <label class="item item-input">
+		  	<input type="hidden" ng-model="list.id" >
+		  	<span class="input-label">Nombre</span>
+		    <input type="text" ng-model="list.name">
+		  </label>
+		  <label class="item item-input item-select">
+		    <div class="input-label">
+		      Color
+		    </div>
+		    <select name="color" ng-model="list.color">
+		      <option ng-repeat="color in colores" value="{{color}}" class="{{color}}">{{color}}</option>
+		    </select>
+		  </label>
+		  <label class="item item-input">
+		  	<span class="input-label">¿Comentarios?</span>
+		    <textarea ng-model="list.comment"></textarea>
+		  </label>
+		<button class="button button-block button-assertive" ng-click="add(list)">
+		  Agregar
+		</button>
+		</div>
+	</ion-content>
+</ion-modal-view>

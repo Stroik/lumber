@@ -1,8 +1,14 @@
-<ion-view view-title="{{todo.name}}">
-  <ion-content class="padding">
-    <p>
-    pipo
-      {{chat.lastText}}
-    </p>
+<ion-view view-title="{{todolist.name}}">
+      <ion-nav-buttons side="right">
+        <button class="button" ng-click="openModal()" >
+          <i class="icon ion-android-add-circle"></i>
+        </button>
+      </ion-nav-buttons>
+  <ion-content>
+    <ion-list>
+      <ion-item class="item-remove-animate " ng-repeat="todos in todolist.todos" type="item-text-wrap" ng-class="{'isDone': isDone}" ng-click="isDone = !isDone">
+        <h2>{{todos.name}}</h2>
+      </ion-item>
+    </ion-list>
   </ion-content>
 </ion-view>
