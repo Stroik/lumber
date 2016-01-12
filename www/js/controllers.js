@@ -37,7 +37,7 @@ angular.module('starter.controllers', [])
        if(res) {
          Todos.removeList(list);
        } else {
-         console.log('You are not sure');
+         console.log('Cancelado');
        }
      });
   };
@@ -52,7 +52,6 @@ angular.module('starter.controllers', [])
   $scope.listid = $scope.todolist.id;
   $scope.todo = {};
   $scope.todo.done = false;
-  console.log($scope.todolist);
   $ionicModal.fromTemplateUrl('templates/add-todo.html', {scope: $scope}).then(function(modal) { $scope.modal = modal; });
   $scope.openModal = function(){$scope.modal.show();};
   $scope.closeModal = function(){$scope.modal.hide();};
@@ -63,7 +62,6 @@ angular.module('starter.controllers', [])
   }
   $scope.addTodo = function(id, todo){
     if(!todo.name){
-      console.log('Need a Name');
     }else{
       Todos.saveTodo($scope.listid, todo);
       $scope.clearList();
@@ -103,6 +101,26 @@ angular.module('starter.controllers', [])
     $location.path('/tab/notes/');
   }
 })
-.controller('OptionsCtrl', function($scope, $rootScope, Todos, $localStorage, $ionicModal) {
+.controller('OptionsCtrl', function($scope, $rootScope, Todos, $localStorage, $ionicModal, $ionicPopup, $location) {
+  $scope.resetDB = function(){
+    var confirmPopup = $ionicPopup.confirm({
+      title: '¿Estás seguro?',
+       template: 'Si aceptas se eliminarán todas las notas existentes',
+       buttons: [
+        {text: 'Cancelar', type: 'button-default'},
+        {text: 'Eliminar', type: 'button-assertive', onTap: function(e){return true;}}
+      ]
+     });
 
+     confirmPopup.then(function(res) {
+       if(res) {
+         $localStorage.$reset({
+          notes: [],
+          todos: []
+         });
+       } else {
+         console.log('Cancelado');
+       }
+     });
+  };
 });
