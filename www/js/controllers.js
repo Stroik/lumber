@@ -1,6 +1,6 @@
 angular.module('starter.controllers', [])
 
-.controller('TodosCtrl', function($scope, $rootScope, Todos, $localStorage, $ionicModal, $ionicPopup, $location) {
+.controller('TodosCtrl', function($scope, $rootScope, Todos, $localStorage, $ionicModal, $ionicPopup, $ionicPopover, $location) {
   $scope.$storage = $localStorage;
   $scope.todos = Todos.all();
   $scope.list = {};
@@ -8,6 +8,10 @@ angular.module('starter.controllers', [])
   $scope.openModal = function(){$scope.modal.show();};
   $scope.closeModal = function(){$scope.modal.hide();};
   $scope.$on('$destroy', function(){$scope.modal.remove();});
+//filtro colores
+
+
+
   $scope.colores = ['rosa','azul', 'verde','naranja','marron', 'violeta'];
   $scope.add = function(list){
     if(!list.name){
@@ -23,6 +27,7 @@ angular.module('starter.controllers', [])
     }
   }
   $scope.isDone = false;
+
   $scope.del = function(list){
     var confirmPopup = $ionicPopup.confirm({
       title: '¿Estás seguro?',
@@ -45,6 +50,35 @@ angular.module('starter.controllers', [])
     $scope.list = {};
     $scope.closeModal();
   };
+  $ionicPopover.fromTemplateUrl('templates/filter-todos.html', {
+    scope: $scope,
+  }).then(function(popover) {
+    $scope.popover = popover;
+  });
+
+    $scope.showFiltroColores = function(){
+      $ionicPopup.show({
+          title: 'Filtrar por color', // String. The title of the popup.
+          cssClass: '', // String, The custom CSS class name
+          subTitle: '', // String (optional). The sub-title of the popup.
+          templateUrl: 'templates/color-filter.html', // String (optional). The URL of an html template to place in the popup   body.
+          scope: $scope, // Scope (optional). A scope to link to the popup content.
+          buttons: [{ // Array[Object] (optional). Buttons to place in the popup footer.
+            text: 'Cancelar'
+          }, 
+          {
+            text: 'Filtrar',
+            type: 'button-assertive',
+            onTap: function(e) {
+              console.log($scope.colors);
+              return $scope.colors;
+            }
+          }]
+        })
+         .then(function(res) {
+           console.log(res);
+         });
+  }
 })
 
 .controller('TodoListCtrl', function($scope, $rootScope, $stateParams, $ionicModal, Todos, $localStorage) {

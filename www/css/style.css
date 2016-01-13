@@ -17,3 +17,11 @@ ion-item.item-remove-animate{border: transparent;}
 label.item.item-input.input-textarea textarea {background: transparent;line-height: 35px;}
 label.item.item-input.input-textarea {background: linear-gradient( to bottom, #FFF8BF 99%, #444 1% );background-size: 100% 35px;}
 ion-item.item-remove-animate.notes .item-content{background: rgba(158, 158, 158, 0.1);}
+.bar .button.button-icon:before, .bar .button .icon:before, .bar .button.icon:before, .bar .button.icon-left:before, .bar .button.icon-right:before, .bar button.button-icon:before, .bar button .icon:before, .bar button.icon:before, .bar button.icon-left:before, .bar button.icon-right:before {font-size: 28px;line-height: 29px;}
+.rosa .radio-content .item-radio input:checked + .radio-content .item-content{background-color: #FFDFDF !important;}
+.azul .radio-content .item-radio input:checked + .radio-content .item-content{background-color: #B8DEFC !important;}
+.verde .radio-content .item-radio input:checked + .radio-content .item-content{background-color: #CBFFCD !important;}
+.naranja .radio-content .item-radio input:checked + .radio-content .item-content{background-color: #FECE86 !important;}
+.marron .radio-content .item-radio input:checked + .radio-content .item-content{background-color: #BA9C91 !important;}
+.violeta .radio-content .item-radio input:checked + .radio-content .item-content{background-color: #DFD1F8 !important;}
+.item-complex .item-content, .item-radio .item-content{background: transparent; background-color:transparent;}
